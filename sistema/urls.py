@@ -1,9 +1,9 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path # Adicionada a importação do include para correção da linha 6
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cadastro/', preciso mostrar a página cadastro.html),  # ERRO 4: sintaxe inválida. Deve ser: include('portal.urls') ou views.cadastro
+    path('cadastro/', include('portal.urls')),  # Usando o include para corrigir o erro 4. Agora a URL 'cadastro/' será direcionada para as URLs definidas no arquivo portal/urls.py.
 ]
 
 

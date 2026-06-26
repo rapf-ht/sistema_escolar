@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # ERRO 6: o app 'portal' não está registrado. Sem ele o Django não reconhece os models, migrations e templates do app.
+    'portal',  # Correção: o app 'portal' não está registrado. Sem ele o Django não reconhece os models, migrations e templates do app.
 ]
 
 MIDDLEWARE = [

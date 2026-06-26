@@ -3,7 +3,7 @@ from portal import models
 
 @admin.register(models.Professor)  # Registrando a classe Professor no Portal do Django
 class ProfessorAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'email', 'telefone', 'especialidade', 'ativo',)  # ERRO 5: 'especialidade' não existe neste modelo. O campo correto é 'disciplina'
+    list_display = ('id', 'nome', 'email', 'telefone', 'disciplina', 'ativo',)  # 'especialidade' -> 'disciplina'
 
 @admin.register(models.Aluno)  # Registrando a classe Aluno no Portal do Django
 class AlunoAdmin(admin.ModelAdmin):

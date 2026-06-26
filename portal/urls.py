@@ -5,7 +5,7 @@ from portal import views
 # exemplo: path('index/', views.index)
 urlpatterns = [
     path('index/', views.index),
-    path('cadastro/', views.cadastro),  # ERRO 8: a view 'cadastro' não existe em views.py. Precisa ser criada ou esta linha deve ser removida
+    path('cadastro/', views.cadastro),  # View cadastro criada no portal/views.py
 ]
 
 

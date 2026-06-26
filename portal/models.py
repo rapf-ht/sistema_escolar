@@ -1,7 +1,6 @@
 from django.db import models
+from django.utils import timezone  # Adicionada a importação do timezone.
 
-# ERRO 1: A importação do timezone está faltando.
-# Adicione: from django.utils import timezone
 
 # Criar um modelo do Professor, com nome, email, telefone, registro, disciplina
 class Professor(models.Model):
@@ -9,7 +8,7 @@ class Professor(models.Model):
     nome = models.CharField(max_length=30)
     sobrenome = models.CharField(max_length=30)
     email = models.EmailField()
-    criacao_data = models.DateTimeField(default=timezone.now)  # ERRO 1 aqui: timezone não foi importado
+    criacao_data = models.DateTimeField(default=timezone.now)  # Timezone importado para corrigir o erro 1. Agora o campo criacao_data será preenchido com a data e hora atual do servidor.
     telefone = models.CharField(max_length=15)
     registro = models.CharField(max_length=10)
     disciplina = models.CharField(max_length=30)
@@ -27,7 +26,7 @@ class Aluno(models.Model):
     sobrenome = models.CharField(max_length=50)
     email = models.EmailField()
     telefone = models.CharField(max_length=15)
-    matricula = models.IntegerField()  # ERRO 7: tipo errado. IntegerField não armazena zeros à esquerda (ex: "0042" vira 42). Deve ser CharField(max_length=10)
+    matricula = models.CharField(max_length=10)  # Correção: Troca para CharField, pois o formato estava incorreto.
     criacao_data = models.DateTimeField(default=timezone.now)  # ERRO 1 também aqui
     observacao = models.TextField(blank=True)
     ativo = models.BooleanField(default=True)
@@ -39,7 +38,7 @@ class Aluno(models.Model):
 class Aula(models.Model):
     aluno_id = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     professor_id = models.ForeignKey(Professor, on_delete=models.CASCADE)
-    horario = models.DateTimeField(default=timezone.now)  # ERRO 1 também aqui
+    horario = models.DateTimeField(default=timezone.now)  # Import feito, timezone funcionando.
     observacao = models.TextField(blank=True)
     status = models.CharField(
         default='A',

@@ -8,5 +8,13 @@ from django.shortcuts import render
 def index(request):  # É a request feita pelo usuário
     return render(
         request,
-        'templates/portal/index.html'  # ERRO 2: caminho errado. Deve ser 'portal/index.html'
+        'portal/index.html'  # Endereço do template corrigido
+    )
+
+# Criando a view para cadastro:
+
+def cadastro(request):
+    return render(
+        request,
+        'portal/cadastro.html'
     )

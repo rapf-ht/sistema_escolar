@@ -1,6 +1,6 @@
 from django import forms
 
-from models import Professor  # ERRO 3: importação incorreta. Deve ser: from portal.models import Professor
+from portal.models import Professor  # Importação corrigida.
 
 class ProfessorForm(forms.ModelForm):
     class Meta:  # A classe meta serve para configurar o form
